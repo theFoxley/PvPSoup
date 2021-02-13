@@ -34,9 +34,12 @@ public class PvPSoup extends JavaPlugin implements Listener {
 
                 Player p = event.getPlayer();
 
-                p.setHealth(Math.min(p.getMaxHealth(), p.getHealth() + heal));
+                if(p.getHealth() < p.getMaxHealth()) {
+                    p.setHealth(Math.min(p.getMaxHealth(), p.getHealth() + heal));
 
-                event.getItem().setType(Material.BOWL);
+                    event.getItem().setType(Material.BOWL);
+                }
+
             }
         }
     }
